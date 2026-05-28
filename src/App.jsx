@@ -129,7 +129,7 @@ export default function App() {
       const res = await fetch(`${SUPABASE_URL}/rest/v1/termine`, {
         method: 'POST',
         headers: { ...headers, Authorization: `Bearer ${user.token}` },
-        body: JSON.stringify({ ...form, status: 'ausstehend', sms_gesendet: false }),
+        body: JSON.stringify({ ...form, status: 'ausstehend', sms_gesendet: false, user_id: user.id }),
       });
       if (res.ok) {
         showToast(`Termin für ${form.name} gespeichert ✓`);
